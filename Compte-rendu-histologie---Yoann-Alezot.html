@@ -203,43 +203,8 @@ cor &lt;- c()
 
 for(i in 1:length(genes)){
   cor[i] &lt;- cor(s,genes[,i],use = &quot;pairwise.complete.obs&quot;)
-}</code></pre>
-<pre><code>## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle
-
-## Warning in cor(s, genes[, i], use = &quot;pairwise.complete.obs&quot;): l'écart type
-## est nulle</code></pre>
-<pre class="r"><code>names(cor) &lt;- names(genes)</code></pre>
+}
+names(cor) &lt;- names(genes)</code></pre>
 <p>On se rend compte que certains gènes ont un écart type nul et que des valeurs sont manquantes dans certains gènes. Nous exclurons les variables de notre variable gènes ayant un écart type nul ce qui suppose qu’elles n’ont aucun pouvoir prédictif. Nous enlèverons aussi de notre variable cor (pour corrélation) les gènes contenant des valeurs manquantes.</p>
 <pre class="r"><code>var_out &lt;- which(apply(genes,2,sd)==0)
 genes &lt;- genes[,-var_out]
